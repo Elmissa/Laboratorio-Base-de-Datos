@@ -1,0 +1,90 @@
+CREATE TABLE [dbo].[Proveedores](
+	[idProvedor] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[RFC] [varchar](50) NULL,
+	[IdDireccion] [int] NULL,
+	[IdProducto] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Direccion](
+	[idDireccion] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[Calle] [varchar](50) NULL,
+	[Numero] [int] NULL,
+	[Colonia] [varchar](50) NULL,
+	[CodigoPostal] [int] NULL,
+	[IdMunicipio] [int] NOT NULL,
+	[IdEstado] [int] NOT NULL,
+	[IdPais] [INT] NOT NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Municipio](
+	[idMunicipio] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Estado](
+	[idEstado] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Pais](
+	[idPais] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Producto](
+	[idProducto] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[Descripcion] [varchar](50) NULL,
+	[Precio] [Money] NULL,
+	[IdProveedor] [int] NULL,
+	[IdCategoria] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Categoria](
+	[idCategoria] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Cliente](
+	[idCliente] [int] IDENTITY(1000,1) NOT NULL,
+	[Nombre] [varchar](150) NULL,
+	[ApPaterno] [varchar](150) NULL,
+	[ApMaterno] [varchar](150) NULL,
+	[IdTelefono] [int] NULL,
+	[IdDireccion] [int] NULL,
+
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Empleado](
+	[idEmpleado] [int] IDENTITY(1000,1) NOT NULL,
+	[Nombre] [varchar](150) NULL,
+	[ApPaterno] [varchar](150) NULL,
+	[ApMaterno] [varchar](150) NULL,
+	[IdTelefono] [int] NULL,
+	[IdDireccion] [int] NULL,
+
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[TelefonoEmpleado](
+	[idTelefonoEmpleado] [int] IDENTITY(1,1) NOT NULL,
+	[IdTelefono] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[TelefonoCliente](
+	[idTelefonoCliente] [int] IDENTITY(1,1) NOT NULL,
+	[IdTelefono] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Telefono](
+	[idTelefono] [int] IDENTITY(1,1) NOT NULL,
+	[Telefono] [int] NULL,
+	[IdTipo] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[TipoTelefono](
+	[idTipoTelefono] [int] IDENTITY(1,1) NOT NULL,
+	[Tipo] [varchar](150) NULL
+) ON [PRIMARY]
